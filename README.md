@@ -297,7 +297,10 @@ A právě dlouhodobá data jsou pro další ladění systému mnohem cennější
 <p align="center">
   </br>
   <img src="images/ha-dashboard.jpeg" width="300"></br>
-  Screenshot Node-RED flow
+  Home Assistant Dashboard
+  </br>
+  <img src="images/greenhouse-control.jpeg" width="300"></br>
+  ESP řízení ve skleníku
 </p>
 ---
 
