@@ -27,10 +27,8 @@ Důležitou součástí stavby je tepelná izolace. Podzemní část je izolová
 
 Ve skleníku je také **220litrový sud s vodou**, který kromě své hlavní funkce přidává další tepelnou setrvačnost.
 
-> 📷 ![Fotografie stavby skleníku, základů a izolace XPS.](images/greenhouse-base.jpeg)
-
 <p align="center">
-  <img src="images/greenhouse-base.jpeg" width="600">
+  <img src="images/greenhouse-base.jpeg" width="600"></br>
   Fotografie stavby skleníku, základů a izolace XPS
 </p>
 ---
