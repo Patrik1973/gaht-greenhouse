@@ -409,3 +409,8 @@ Ne jako univerzální návod na stavbu skleníku, který je potřeba přesně ok
 A protože se v něm stále něco měří, upravuje a vylepšuje, je dost pravděpodobné, že ani tahle dokumentace nebude nikdy úplně hotová.
 
 # Tak trochu jiný skleník 🌱
+
+<p align="center">
+  </br>
+  <img src="images/greenhouse-inside.jpeg" width="600"></br>
+</p>
