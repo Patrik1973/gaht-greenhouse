@@ -54,7 +54,7 @@ Můj skleník není kopií jejich konkrétního řešení. Princip jsem si přiz
 
 ## Jak je GAHT postavený
 
-Pod skleníkem je vytvořen systém vzduchových trubek. Ventilátor může nasávat vzduch z horní části skleníku, protlačit jej podzemním potrubím a následně jej vrátit zpět do skleníku.
+Pod skleníkem je vytvořen systém perforovaných vzduchových trubek. Ventilátor může nasávat vzduch z horní části skleníku, protlačit jej podzemním potrubím a následně jej vrátit zpět do skleníku.
 
 A právě zemina kolem potrubí funguje jako výměník a zároveň jako zásobník tepla.
 
