@@ -29,6 +29,10 @@ Ve skleníku je také **220litrový sud s vodou**, který kromě své hlavní fu
 
 > 📷 ![Fotografie stavby skleníku, základů a izolace XPS.](images/greenhouse-base.jpeg)
 
+<p align="center">
+  <img src="images/greenhouse-base.jpeg" width="600">
+  Fotografie stavby skleníku, základů a izolace XPS
+</p>
 ---
 
 # GAHT – klimatizace pomocí země
