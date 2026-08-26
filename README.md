@@ -68,8 +68,13 @@ Teplotní čidlo zeminy je přibližně ve stejné hloubce jako potrubí, ale as
 
 Nasávání vzduchu je umístěno nahoře, kde se přirozeně hromadí nejteplejší vzduch. Výstup systému je na opačné straně skleníku.
 
-> 📷 *Pokládka pěti větví podzemního potrubí – 5 × 10 metrů Ø100 mm.*
-
+<p align="center">
+  </br>
+  <img src="images/greenhouse-gaht-in.jpeg" width="40%">
+  <img src="images/greenhouse-gaht-out.jpeg" width="40%">
+  </br>
+  Pokládka pěti větví podzemního potrubí – 5 × 10 metrů Ø100 mm
+</p>
 ---
 
 # Země jako tepelná baterie
