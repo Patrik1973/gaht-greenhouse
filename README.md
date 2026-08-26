@@ -294,6 +294,11 @@ Je na nich možné sledovat:
 
 A právě dlouhodobá data jsou pro další ladění systému mnohem cennější než pocit, že „dnes tam bylo docela teplo“.
 
+<p align="center">
+  </br>
+  <img src="images/ha-dashboard.jpeg" width="300"></br>
+  Screenshot Node-RED flow
+</p>
 ---
 
 # A když už automatizovat, tak i vodu
@@ -305,8 +310,6 @@ Proto je součástí systému **kapková závlaha**.
 U rajčat, paprik nebo okurek má kapková závlaha několik výhod. Voda jde přímo ke kořenům, zbytečně se nenamáčí listy a množství vody lze dávkovat podstatně přesněji než při klasickém zalévání konví.
 
 Také zde je výhoda propojení s automatizací. Zavlažování nemusí být izolovaný systém s obyčejnými spínacími hodinami. Home Assistant ví, kdy se zalévalo, jak dlouho závlaha běžela a celý systém lze dál rozšiřovat o informace ze senzorů.
-
-> 📷 *Detail kapkové závlahy a záhonů během sezóny.*
 
 ---
 
