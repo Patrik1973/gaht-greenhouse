@@ -1,5 +1,9 @@
 # gaht-greenhouse
 Tak trochu jiný skleník – GAHT climate battery, Home Assistant automation and drip irrigation
+<p align="center">
+  </br>
+  <img src="images/greenhouse-outside.jpeg" width="600"></br>
+</p>
 
 # Tak trochu jiný skleník
 
@@ -28,6 +32,7 @@ Důležitou součástí stavby je tepelná izolace. Podzemní část je izolová
 Ve skleníku je také **220litrový sud s vodou**, který kromě své hlavní funkce přidává další tepelnou setrvačnost.
 
 <p align="center">
+  </br>
   <img src="images/greenhouse-base.jpeg" width="600"></br>
   Fotografie stavby skleníku, základů a izolace XPS
 </p>
