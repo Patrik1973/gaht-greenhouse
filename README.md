@@ -105,7 +105,11 @@ Následující graf zachycuje několik chladných dnů na začátku března.
 - **červená** – venkovní teplota
 - **modrá** – teplota zeminy
 
-![Březnový provoz GAHT](images/greenhouse-temperature-march.jpg)
+<p align="center">
+  </br>
+  <img src="images/greenhouse-temperature-data_2026-03.png"></br>
+  Březnový provoz GAHT
+</p>
 
 Během prvních tří dnů je GAHT aktivní.
 
@@ -165,7 +169,11 @@ A právě stabilnější a teplejší půda dává kořenovému systému rostlin
 
 O měsíc později už není hlavním cílem jen experimentovat s ukládáním tepla. Ve skleníku začíná být důležité udržet během chladných nocí teplotu nad bodem mrazu.
 
-![Dubnový provoz GAHT](images/greenhouse-temperature-april.jpg)
+<p align="center">
+  </br>
+  <img src="images/greenhouse-temperature-data_2026-04.png"></br>
+  Dubnový provoz GAHT
+</p>
 
 Na grafu je několik nocí, během kterých venkovní teplota klesá **pod 0 °C**, zatímco uvnitř skleníku se daří držet teplotu nad bodem mrazu.
 
@@ -189,7 +197,12 @@ Je ho **příliš mnoho**.
 
 Za slunečného červencového dne začne teplota vzduchu ve skleníku velmi rychle stoupat. Jakmile překročí nastavenou hranici, spustí se GAHT a začne hnát horký vzduch přes 50 metrů potrubí uloženého v chladnější zemině.
 
-![Letní provoz GAHT](images/greenhouse-temperature-july.jpg)
+<p align="center">
+  </br>
+  <img src="images/greenhouse-temperature-data_2026-07.png"></br>
+  Letní provoz GAHT
+</p>
+
 
 Na grafu je tento okamžik velmi dobře vidět.
 
@@ -253,7 +266,12 @@ Automatizace navíc používá **minimální dobu běhu 10 minut**, aby ventilá
 
 Řízení rozlišuje také zimní a letní část roku, protože požadované chování systému je v různých částech sezóny odlišné.
 
-> 📷 *Screenshot Node-RED flow.*
+<p align="center">
+  </br>
+  <img src="images/greenhouse-node-red.png" width="600"></br>
+  Screenshot Node-RED flow
+</p>
+
 
 ---
 
