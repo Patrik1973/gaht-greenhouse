@@ -298,9 +298,9 @@ A právě dlouhodobá data jsou pro další ladění systému mnohem cennější
   </br>
   <img src="images/ha-dashboard.jpeg" width="300"></br>
   Home Assistant Dashboard
-  </br>
+  </br></br>
   <img src="images/greenhouse-control.jpeg" width="300"></br>
-  ESP řízení ve skleníku
+  Řízení ve skleníku pomocí ESP
 </p>
 ---
 
