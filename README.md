@@ -58,7 +58,9 @@ Pod skleníkem je vytvořen systém perforovaných vzduchových trubek. Ventilá
 
 A právě zemina kolem potrubí funguje jako výměník a zároveň jako zásobník tepla.
 
+GAHT má ale ještě jeden zajímavý vedlejší efekt – pomáhá skleník odvlhčovat. Když teplý a vlhký vzduch prochází chladnějším podzemním potrubím, ochlazuje se a část obsažené vodní páry může zkondenzovat. Rozvodné trubky jsou proto perforované, takže vzniklý kondenzát může odtékat přímo do okolní zeminy a nezůstává uvnitř potrubí.
 
+Část vody, která se odpařila ze záhonů a rostlin do vzduchu skleníku, se tak při průchodu GAHT vrací zpět do půdy. Systém tedy kromě přesunu tepla současně pomáhá pracovat i s vlhkostí uvnitř skleníku.
 
 Hlavní vstupní a výstupní potrubí má průměr **200 mm**. Pod zemí se proud vzduchu rozděluje do **pěti paralelních větví o průměru 100 mm**, přičemž každá má délku přibližně **10 metrů**.
 
