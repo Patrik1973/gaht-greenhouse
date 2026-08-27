@@ -384,7 +384,7 @@ Snažím se vytvořit **tepelně stabilnější prostředí celého skleníku �
 
 # Co dál?
 
-Celý skleník beru spíš jako dlouhodobý projekt než jako hotovou věc. **Stále je co zlepšovat.
+Celý skleník beru spíš jako dlouhodobý projekt než jako hotovou věc. **Stále je co zlepšovat.**
 
 Home Assistant umožňuje ukládat data, porovnávat jednotlivé sezóny a podle nich upravovat řízení ventilace.
 
