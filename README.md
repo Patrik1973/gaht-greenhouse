@@ -276,6 +276,14 @@ Automatizace navíc používá **minimální dobu běhu 10 minut**, aby ventilá
   Screenshot Node-RED flow
 </p>
 
+### Konfigurace
+
+Pro případ, že by si chtěl někdo celé řešení prohlédnout podrobněji nebo se jím inspirovat, přikládám i skutečnou konfiguraci použitou v mém skleníku:
+
+- [Node-RED – řízení ventilátoru GAHT](sources/greenhouse-fan-flows.json)
+- [ESPHome – senzory a řízení skleníku](sources/greenhouse-esphome.yaml)
+
+Konfigurace odpovídá mému konkrétnímu zapojení a není myšlena jako univerzální řešení „zkopíruj a spusť“. Pro vlastní použití bude samozřejmě potřeba upravit entity, senzory, GPIO a další parametry podle konkrétní instalace.
 
 ---
 
