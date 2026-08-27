@@ -1,3 +1,4 @@
+[🇨🇿 Česky](README.md) · [🇬🇧 English](README_EN.md)
 # gaht-greenhouse
 Tak trochu jiný skleník – GAHT climate battery, Home Assistant automation and drip irrigation
 <p align="center">
