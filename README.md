@@ -384,27 +384,9 @@ Snažím se vytvořit **tepelně stabilnější prostředí celého skleníku �
 
 # Co dál?
 
-Celý skleník beru spíš jako dlouhodobý projekt než jako hotovou věc.
+Celý skleník beru spíš jako dlouhodobý projekt než jako hotovou věc, stále je co zlepšovat.
 
 Home Assistant umožňuje ukládat data, porovnávat jednotlivé sezóny a podle nich upravovat řízení ventilace.
-
-Postupně tak lze hledat odpovědi na mnohem zajímavější otázky než jen „kolik je právě ve skleníku stupňů“.
-
-Například:
-
-**Kolik energie dokáže zemina během dne skutečně absorbovat?**
-
-**Jak dlouho ji dokáže udržet?**
-
-**O kolik GAHT sníží maximální letní teplotu?**
-
-**Jak velký vliv má na teplotu půdy na začátku sezóny?**
-
-**A o kolik dokáže prodloužit pěstitelskou sezónu?**
-
-Právě proto vznikl i tento GitHub.
-
-Ne jako univerzální návod na stavbu skleníku, který je potřeba přesně okopírovat, ale jako dokumentace jednoho experimentu, který spojuje **zahradničení, fyziku, elektroniku a domácí automatizaci**.
 
 A protože se v něm stále něco měří, upravuje a vylepšuje, je dost pravděpodobné, že ani tahle dokumentace nebude nikdy úplně hotová.
 
