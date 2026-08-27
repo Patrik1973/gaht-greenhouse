@@ -1,0 +1,543 @@
+substitutions:
+  commonname: "Multisensor 02"
+
+esphome:
+  name: "multisensor02"
+  friendly_name: "Greenhouse Control"
+  on_boot:
+    priority: -100
+    then:
+      - lambda: |-
+          id(lcd_display).backlight();
+          id(lcd_on) = true;
+          id(last_button_press) = millis();
+         # id(pzemac1).set_address(1);
+
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: arduino #esp-idf
+    version: recommended
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_key
+
+web_server:
+  port: 80
+
+ota:
+  - platform: esphome
+    password: !secret ota_pass
+  - platform: web_server
+
+wifi:
+  ssid: !secret wifi-iot_ssid
+  password: !secret wifi-iot_pass
+  fast_connect: true
+  min_auth_mode: WPA2
+  #use_address: 192.168.x.x
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Multisensor02 Fallback Hotspot"
+    password: YOUR PASSWORD
+
+captive_portal:
+
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Text sensors with general information.
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: $commonname ESPhome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: $commonname IP
+    ssid:
+      name: $commonname SSID
+    bssid:
+      name: $commonname BSSID
+
+# Connecting external Temperature and Humidity AM2315C
+i2c:
+  sda: GPIO8
+  scl: GPIO9
+  scan: true
+  id: bus_i2c
+
+# DALLAS Temperature sensor DS18B20
+one_wire:
+  - platform: gpio
+    pin: GPIO4
+    id: dallas_temperature
+
+# Měření spotřeby ventilátoru PZEM-004T
+uart:
+  - id: ubus1
+    tx_pin: GPIO43 #GPIO17 #GPIO43
+    rx_pin: GPIO44 #GPIO18 #GPIO44
+    baud_rate: 9600
+    data_bits: 8
+    stop_bits: 1
+    parity: NONE
+
+modbus:
+  - id: mbus1
+    uart_id: ubus1
+    #send_wait_time: 500ms
+
+# Přepínání stránek na LCD
+globals:
+  - id: lcd_page
+    type: int
+    restore_value: no
+    initial_value: '0'
+
+  - id: last_button_press
+    type: int
+    restore_value: no
+    initial_value: '0'
+
+  - id: lcd_on
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+
+interval:
+  - interval: 1s
+    then:
+      - lambda: |-
+          if (id(lcd_on) && (millis() - id(last_button_press) > 60000)) {
+            id(lcd_display).no_backlight();
+            id(lcd_on) = false;
+          }
+
+# Binární expander o 16vstupů
+mcp23017:
+  - id: mcp1
+    address: 0x20
+    #irq_pin: GPIO38   # volitelné – pokud připojíš INTA/INTB
+
+sensor:
+# Sensors with general information.
+  # Uptime sensor.
+  - platform: uptime
+    name: $commonname Uptime
+    id: esp_uptime
+
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: $commonname WiFi Signal
+    update_interval: 30s
+
+  # External Temperature and Humidity
+  - platform: am2315c
+    temperature:
+      name: "Temperature"
+      id: greenhouse_temperature
+    humidity:
+      name: "Humidity"
+      id: greenhouse_humidity
+    address: 0x38
+    update_interval: 30s
+
+  # Temperature sensor
+  - platform: dallas_temp
+    name: "Air IN Temperature"
+    address: 0x1a0202924581e028 #0xFFFFFFFFFFFFFFFF
+    update_interval: 10s
+    filters:
+    - median:
+        window_size: 7
+        send_every: 4
+        send_first_at: 1
+    id: dallas_temperature_air_in
+
+  - platform: dallas_temp
+    name: "Air OUT Temperature"
+    address: 0x1502109245adb728 #0xFFFFFFFFFFFFFFFF
+    update_interval: 10s
+    filters:
+    - median:
+        window_size: 7
+        send_every: 4
+        send_first_at: 1
+    id: dallas_temperature_air_out
+
+  - platform: dallas_temp
+    name: "Ground IN Temperature"
+    address: 0xa4e2a7771f64ff28 #0xFFFFFFFFFFFFFFFF
+    update_interval: 30s
+    filters:
+    - median:
+        window_size: 7
+        send_every: 4
+        send_first_at: 1
+    id: dallas_temperature_ground_in
+
+  - platform: dallas_temp
+    name: "Ground OUT Temperature"
+    address: 0x7e68b6771f64ff28 #0xFFFFFFFFFFFFFFFF
+    update_interval: 30s
+    filters:
+    - median:
+        window_size: 7
+        send_every: 4
+        send_first_at: 1
+    id: dallas_temperature_ground_out
+
+  # Měření odběru na ventilátoru - PZEM-004T-V3
+  - platform: pzemac
+    id: pzemac1
+    address: 1
+    modbus_id: mbus1
+    current:
+      name: "Current"
+      id: current_l1
+      accuracy_decimals: 3
+    voltage:
+      name: "Voltage"
+      id: voltage_l1
+      accuracy_decimals: 2
+    energy:
+      name: "Energy"
+      id: energy_l1
+      unit_of_measurement: "kWh"
+      accuracy_decimals: 2
+      filters:
+        - multiply: 0.001
+    power:
+      name: "Power"
+      id: power_l1
+      accuracy_decimals: 2
+    frequency:
+      name: "Frequency"
+      id: frequency_l1
+      accuracy_decimals: 2
+    power_factor:
+      name: "Power Factor"
+      id: power_factor_l1
+      accuracy_decimals: 2
+    update_interval: 2s
+
+  # Výsledná hladina v procentech
+  - platform: template
+    id: rain_barrel_level_percent
+    name: "Barrel - water level"
+    icon: mdi:water-percent
+    unit_of_measurement: "%"
+    accuracy_decimals: 0
+    update_interval: 5s
+    lambda: |-
+      if (id(liquid_sensor_100).state) {
+        return 100.0;
+      } else if (id(liquid_sensor_75).state) {
+        return 75.0;
+      } else if (id(liquid_sensor_50).state) {
+        return 50.0;
+      } else if (id(liquid_sensor_25).state) {
+        return 25.0;
+      } else {
+        return 0.0;
+      }
+
+  # Výsledné množství vody v litrech
+  - platform: template
+    id: rain_barrel_level_liters
+    name: "Barrel - water liters"
+    icon: mdi:barrel
+    unit_of_measurement: "l"
+    device_class: volume
+    accuracy_decimals: 0
+    update_interval: 5s
+    lambda: |-
+      if (id(liquid_sensor_100).state) {
+        return 220.0;
+      } else if (id(liquid_sensor_75).state) {
+        return 165.0;
+      } else if (id(liquid_sensor_50).state) {
+        return 110.0;
+      } else if (id(liquid_sensor_25).state) {
+        return 55.0;
+      } else {
+        return 0.0;
+      }
+
+      
+binary_sensor:
+  - platform: status
+    name: $commonname Status
+
+  # Tlačítko pro přepínání LCD
+  - platform: gpio
+    pin:
+      number: GPIO10
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Switch Page LCD"
+
+    on_press:
+      then:
+        - lambda: |-
+            if (!id(lcd_on)) {
+              // LCD je vypnuté → první stisk zapne
+              id(lcd_display).backlight();
+              id(lcd_on) = true;
+              id(last_button_press) = millis();
+            } else {
+              // LCD už svítí → stisk posune stránku
+              id(lcd_page)++;
+              if (id(lcd_page) > 4) id(lcd_page) = 0;  // 5 stránek = 0,1,2,3,4
+              id(last_button_press) = millis();
+            }
+
+
+    # on_press:
+    #   then:
+    #     - lambda: |-
+    #         id(last_button_press) = millis();
+    #         id(lcd_display).backlight();
+
+    #         id(lcd_page)++;
+    #         if (id(lcd_page) > 2) id(lcd_page) = 0;  // 3 stránky = 0,1,2
+
+
+  # Tlačítko ventilátoru
+  - platform: gpio
+    pin:
+      number: GPIO13
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Button Fan"
+    filters:
+      - delayed_on: 20ms
+      - delayed_off: 20ms
+    on_press:
+      - switch.toggle: relay_fan
+
+  # Tlačítko světla
+  - platform: gpio
+    pin:
+      number: GPIO21
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Button Grow Light"
+    filters:
+      - delayed_on: 20ms
+      - delayed_off: 20ms
+    on_press:
+      - switch.toggle: relay_light
+
+  # - platform: mcp23017
+  #   mcp23017: mcp1
+  #   pin: GPA0
+
+  # Dveřní kontakt - přední dveře
+  - platform: gpio
+    name: "Front Door Contact"
+    device_class: door
+    pin:
+      mcp23xxx: mcp1
+      # Use pin A0
+      number: 0
+      mode:
+        input: true
+        pullup: false     # TRUE = pokud je interní ~100 kΩ; FALSE = pokud je vložen externí 10kΩ (odpor mezi kontakt proti 3.3V) pro delší vzdáleností kontaktu > 1m
+      inverted: false      # NC logika
+    filters:
+      - delayed_on: 40ms
+      - delayed_off: 40ms
+
+  # Liquid senzor XKC-Y25-V - Kontakt hladiny vody v sudu = 100%
+  - platform: gpio
+    id: liquid_sensor_100
+    pin:
+      mcp23xxx: mcp1
+      number: 1
+      mode:
+        input: true
+        pullup: true
+    device_class: moisture
+    name: "Liquid sensor - 100%"
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
+
+  # Liquid senzor XKC-Y25-V - Kontakt hladiny vody v sudu = 75%
+  - platform: gpio
+    id: liquid_sensor_75
+    pin:
+      mcp23xxx: mcp1
+      number: 2
+      mode:
+        input: true
+        pullup: true
+    device_class: moisture
+    name: "Liquid sensor - 75%"
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
+
+  # Liquid senzor XKC-Y25-V - Kontakt hladiny vody v sudu = 50%
+  - platform: gpio
+    id: liquid_sensor_50
+    pin:
+      mcp23xxx: mcp1
+      number: 3
+      mode:
+        input: true
+        pullup: true
+    device_class: moisture
+    name: "Liquid sensor - 50%"
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
+
+  # Liquid senzor XKC-Y25-V - Kontakt hladiny vody v sudu = 25%
+  - platform: gpio
+    id: liquid_sensor_25
+    pin:
+      mcp23xxx: mcp1
+      number: 4
+      mode:
+        input: true
+        pullup: true
+    device_class: moisture
+    name: "Liquid sensor - 25%"
+    filters:
+      - delayed_on: 1s
+      - delayed_off: 1s
+
+        
+switch:
+  # Switch to restart the test module.
+  - platform: restart
+    name: $commonname Restart
+
+  # - platform: uart 
+  #   name: "Reset kWh Total" 
+  #   data: [0x01, 0x42, 0x80, 0x11]
+
+#switch:
+  # Relay FAN
+  - platform: gpio
+    pin:
+      number: GPIO15
+      inverted: True
+    id: relay_fan
+    name: "Fan Power"
+    restore_mode: ALWAYS_OFF
+
+  # Relay Grow Light
+  - platform: gpio
+    pin:
+      number: GPIO16
+      inverted: True
+    id: relay_light
+    name: "Grow Light"
+    restore_mode: ALWAYS_OFF
+
+button:
+  - platform: template
+    name: "Reset kWh Total"
+    id: reset_energy_l1
+    on_press:
+      - pzemac.reset_energy: pzemac1
+      # - lambda: |-
+      #     id(pzemac1).reset_energy();
+          
+output:
+  - platform: ledc
+    id: pwm_raw
+    pin: GPIO12
+    frequency: 2000 Hz
+
+  - platform: template
+    id: pwm_inverted    # 10V to 0V
+    type: float
+    write_action:
+      - output.set_level:
+          id: pwm_raw
+          level: !lambda "return 1.0 - state;"   # invertace 0–1
+
+  # - platform: ledc
+  #   id: pwm_to_010
+  #   pin: GPIO12       # můžeš dát i GPIO13
+  #   frequency: 2000 Hz
+  #   inverted: false
+
+number:
+  - platform: template
+    name: "Fan Speed"
+    id: fan_level_percent
+    min_value: 0
+    max_value: 100
+    optimistic: true
+    unit_of_measurement: "%"
+    step: 1
+    set_action:
+      - output.set_level:
+          id: pwm_inverted
+          level: !lambda "return x / 100.0;"
+
+  # - platform: template
+  #   name: "Fan 0-10V Level"
+  #   id: fan_level_percent
+  #   optimistic: true
+  #   unit_of_measurement: "%"
+  #   min_value: 0
+  #   max_value: 100
+  #   step: 1
+  #   set_action:
+  #     then:
+  #       - output.set_level:
+  #           id: pwm_to_010
+  #           level: !lambda "return x / 100.0;"   # 0–100 % → 0.0–1.0 duty
+
+display:
+  - platform: lcd_pcf8574
+    id: lcd_display
+    address: 0x27
+    dimensions: 20x4 #16x2
+    update_interval: 2s
+    lambda: |-
+      if (id(lcd_page) == 0) {
+        it.printf(0, 0, "Temp: %.1f\xDF""C", id(greenhouse_temperature).state);
+        it.printf(0, 1, "Humi: %.1f%%", id(greenhouse_humidity).state);
+      } else if (id(lcd_page) == 1) {
+        it.printf(0, 0, "Air IN: %.1f\xDF""C", id(dallas_temperature_air_in).state);
+        it.printf(0, 1, "Air OUT: %.1f\xDF""C", id(dallas_temperature_air_out).state);
+        it.printf(0, 2, "Ground IN: %.1f\xDF""C", id(dallas_temperature_ground_in).state);
+        it.printf(0, 3, "Ground OUT: %.1f\xDF""C", id(dallas_temperature_ground_out).state);
+      } else if (id(lcd_page) == 2) {
+        it.printf(0, 0, "Nic");
+      } else if (id(lcd_page) == 3) {
+        it.printf(0, 0, "Power: %.1f" "W", id(power_l1).state);
+        it.printf(0, 1, "Energy: %.1f" "kWh", id(energy_l1).state);
+      } else if (id(lcd_page) == 4) {
+        int seconds = (int) id(esp_uptime).state;
+        int minutes = (seconds / 60) % 60;
+        int hours = (seconds / 3600);
+        //it.printf(0, 0, "UpTime: %02dh %02dm", hours, minutes);
+
+        int days = seconds / 86400;
+        // int hours = (seconds % 86400) / 3600;
+        // int minutes = (seconds % 3600) / 60;
+        it.printf(0, 0, "Uptime:");
+        it.printf(0, 1, "%dd %02dh %02dm", days, hours, minutes);
+
+        // it.printf(0, 0, "UpTime: %.1f", id(esp_uptime).state);
+      }
+
+
