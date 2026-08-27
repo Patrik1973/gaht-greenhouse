@@ -1,3 +1,4 @@
+[🇨🇿 Česky](README.md) · [🇬🇧 English](README_EN.md)
 # gaht-greenhouse
 A Different Kind of Greenhouse – GAHT climate battery, Home Assistant automation and drip irrigation
 
