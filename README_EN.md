@@ -25,7 +25,7 @@ It isn't an air-conditioned greenhouse, nor does it use conventional heating. Th
 
 ## The greenhouse itself
 
-The greenhouse measures approximately **3 × 5 metres** externally, with a usable interior space of around **2.7 × 4.6 m**.
+The greenhouse measures approximately **3 × 5 metres** externally, with a usable interior space of around **2.7 × 4.6 m**. It is located in the Vysočina Region of the Czech Republic at an elevation of approximately **470 metres above sea level**, where colder nights are common, especially at the beginning and end of the growing season.
 
 The structure is glazed with **4 mm glass**, and the raised beds are approximately **50 cm high**. They are arranged roughly in the shape of the letter **E**, providing good access to the plants while making efficient use of the available space.
 
