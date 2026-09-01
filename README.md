@@ -24,7 +24,7 @@ Nejde o klimatizovaný skleník ani o klasické vytápění. Celý princip je vl
 
 ## Základ skleníku
 
-Skleník má vnější rozměry přibližně **3 × 5 metrů**. Vnitřní využitelný prostor je zhruba **2,7 × 4,6 m**.
+Skleník má vnější rozměry přibližně **3 × 5 metrů**. Vnitřní využitelný prostor je zhruba **2,7 × 4,6 m**. Nachází se na Vysočině v nadmořské výšce přibližně **470 m n. m.**, kde jsou zejména na začátku a konci pěstitelské sezóny chladnější noci běžnou součástí místních podmínek.
 
 Konstrukce je zasklená **4mm sklem** a záhony jsou přibližně **50 cm vysoké**. Jejich uspořádání připomíná písmeno **E**, takže zůstává dobrý přístup k rostlinám a současně se maximálně využívá plocha skleníku.
 
