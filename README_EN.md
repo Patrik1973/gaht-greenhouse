@@ -233,6 +233,28 @@ In summer, I use it as a place to store it.
 
 ---
 
+## Late September – Thermal Stabilization Using GAHT
+
+<p align="center">
+  </br>
+  <img src="images/greenhouse-temperature-data_2026-09.jpg"></br>
+  Autumn operation of the GAHT system
+</p>
+
+The graph shows the temperature trends over several days in late September.
+
+During the day, the air temperature inside the greenhouse repeatedly reached approximately **25–32 °C**, with short peaks of around **34 °C**, while during the colder nights the outdoor temperature dropped to approximately **4–8 °C**.
+
+Despite the significant differences between daytime and nighttime temperatures, the temperature of the soil surrounding the GAHT pipes remained relatively stable, approximately between **15–19 °C**.
+
+The graph clearly demonstrates the **thermal inertia of the underground heat storage**. During sunny days, excess heat from the greenhouse is transferred into the ground by the GAHT system, gradually warming the surrounding soil. At night and during colder periods, the soil remains significantly warmer than the outside air and acts as a reservoir of thermal energy that can be used to warm the air inside the greenhouse.
+
+The temperature curves also clearly show that while the greenhouse and outdoor air temperatures can change significantly within just a few hours, the soil temperature changes much more slowly and within a considerably narrower range.
+
+**GAHT therefore acts not only as a way to cool the greenhouse during hot days, but also as an underground thermal storage system that helps reduce significant temperature differences between day and night.**
+
+---
+
 # The greenhouse decides when to run the ventilation
 
 The underground heat exchanger wouldn't be nearly as useful without some form of control, so my GAHT system is connected to **Home Assistant**.
