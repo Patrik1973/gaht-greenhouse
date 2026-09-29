@@ -229,6 +229,22 @@ Na jaře používám zem jako zdroj tepla.
 
 V létě jako jeho zásobník.
 
+
+# Konec září – tepelná stabilizace pomocí GAHT
+
+<p align="center">
+  </br>
+  <img src="images/greenhouse-temperature-data_2026-09.jpg"></br>
+  Letní provoz GAHT
+</p>
+
+Graf zachycuje průběh teplot během několika dnů na konci září. Přes den teplota vzduchu ve skleníku opakovaně dosahovala přibližně 25–32 °C, krátkodobě až kolem 34 °C, zatímco během chladných nocí venkovní teplota klesala přibližně k 4–8 °C.
+Přes výrazné rozdíly mezi denními a nočními teplotami zůstávala teplota zeminy v okolí potrubí GAHT poměrně stabilní, přibližně mezi 15–19 °C.
+Graf dobře ukazuje tepelnou setrvačnost podzemního akumulačního prostoru. Během slunečných dnů je přebytečné teplo ze skleníku pomocí GAHT odváděno do země, která se postupně ohřívá. V noci a během chladnějších období naopak zůstává zemina výrazně teplejší než venkovní vzduch a představuje zásobu tepelné energie, kterou lze využít pro ohřev vzduchu ve skleníku.
+Na průběhu je zároveň dobře patrné, že zatímco teplota vzduchu ve skleníku i venku během několika hodin výrazně kolísá, teplota zeminy se mění pomalu a v podstatně menším rozsahu. GAHT tak nefunguje pouze jako chlazení skleníku během horkých dnů, ale především jako sezónní a krátkodobý tepelný akumulátor, který omezuje teplotní výkyvy.
+
+**GAHT tak nefunguje pouze jako chlazení skleníku během horkých dnů, ale také jako podzemní tepelný akumulátor, který pomáhá omezovat výrazné rozdíly mezi denními a nočními teplotami.**
+
 ---
 
 # Skleník si o ventilaci rozhoduje sám
