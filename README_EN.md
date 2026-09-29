@@ -233,7 +233,7 @@ In summer, I use it as a place to store it.
 
 ---
 
-## Late September – Thermal Stabilization Using GAHT
+# Late September – Thermal Stabilization Using GAHT
 
 <p align="center">
   </br>
