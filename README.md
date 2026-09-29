@@ -236,7 +236,7 @@ V létě jako jeho zásobník.
 <p align="center">
   </br>
   <img src="images/greenhouse-temperature-data_2026-09.jpg"></br>
-  Podzemní provoz GAHT
+  Podzimní provoz GAHT
 </p>
 
 Graf zachycuje průběh teplot během několika dnů na konci září.
