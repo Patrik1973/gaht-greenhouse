@@ -245,6 +245,8 @@ Přes den teplota vzduchu ve skleníku opakovaně dosahovala přibližně 25–3
 
 Přes výrazné rozdíly mezi denními a nočními teplotami zůstávala teplota zeminy v okolí potrubí GAHT poměrně stabilní, přibližně mezi 15–19 °C.
 
+Během chladnějších částí dne a zejména v noci zůstávala teplota vzduchu ve skleníku přibližně o 4–5 °C vyšší než venkovní teplota.
+
 Graf dobře ukazuje tepelnou setrvačnost podzemního akumulačního prostoru. Během slunečných dnů je přebytečné teplo ze skleníku pomocí GAHT odváděno do země, která se postupně ohřívá. V noci a během chladnějších období naopak zůstává zemina výrazně teplejší než venkovní vzduch a představuje zásobu tepelné energie, kterou lze využít pro ohřev vzduchu ve skleníku.
 
 Na průběhu je zároveň dobře patrné, že zatímco teplota vzduchu ve skleníku i venku během několika hodin výrazně kolísá, teplota zeminy se mění pomalu a v podstatně menším rozsahu.
