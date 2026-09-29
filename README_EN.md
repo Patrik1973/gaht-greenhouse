@@ -247,6 +247,8 @@ During the day, the air temperature inside the greenhouse repeatedly reached app
 
 Despite the significant differences between daytime and nighttime temperatures, the temperature of the soil surrounding the GAHT pipes remained relatively stable, approximately between **15–19 °C**.
 
+During the colder parts of the day, particularly at night, the air temperature inside the greenhouse remained approximately **4–5 °C higher than the outdoor temperature**.
+
 The graph clearly demonstrates the **thermal inertia of the underground heat storage**. During sunny days, excess heat from the greenhouse is transferred into the ground by the GAHT system, gradually warming the surrounding soil. At night and during colder periods, the soil remains significantly warmer than the outside air and acts as a reservoir of thermal energy that can be used to warm the air inside the greenhouse.
 
 The temperature curves also clearly show that while the greenhouse and outdoor air temperatures can change significantly within just a few hours, the soil temperature changes much more slowly and within a considerably narrower range.
