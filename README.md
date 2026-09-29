@@ -247,7 +247,7 @@ Přes výrazné rozdíly mezi denními a nočními teplotami zůstávala teplota
 
 Graf dobře ukazuje tepelnou setrvačnost podzemního akumulačního prostoru. Během slunečných dnů je přebytečné teplo ze skleníku pomocí GAHT odváděno do země, která se postupně ohřívá. V noci a během chladnějších období naopak zůstává zemina výrazně teplejší než venkovní vzduch a představuje zásobu tepelné energie, kterou lze využít pro ohřev vzduchu ve skleníku.
 
-Na průběhu je zároveň dobře patrné, že zatímco teplota vzduchu ve skleníku i venku během několika hodin výrazně kolísá, teplota zeminy se mění pomalu a v podstatně menším rozsahu. GAHT tak nefunguje pouze jako chlazení skleníku během horkých dnů, ale především jako sezónní a krátkodobý tepelný akumulátor, který omezuje teplotní výkyvy.
+Na průběhu je zároveň dobře patrné, že zatímco teplota vzduchu ve skleníku i venku během několika hodin výrazně kolísá, teplota zeminy se mění pomalu a v podstatně menším rozsahu.
 
 **GAHT tak nefunguje pouze jako chlazení skleníku během horkých dnů, ale také jako podzemní tepelný akumulátor, který pomáhá omezovat výrazné rozdíly mezi denními a nočními teplotami.**
 
